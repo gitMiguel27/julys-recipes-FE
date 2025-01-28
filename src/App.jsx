@@ -16,6 +16,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/form' element={<RecipeForm />} />
+        <Route path='*' element={<h1>Error: 404 Not Found</h1>} />
       </Routes>
       <Footer />
     </Container>

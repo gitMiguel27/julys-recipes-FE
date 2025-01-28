@@ -2,8 +2,8 @@ import { Container } from "react-bootstrap"
 
 function Home() {
   return (
-    <Container>
-      <div>This is the Home Page</div>
+    <Container style={{ height: '100vh' }} >
+      <h1>This is the Home Page</h1>
     </Container>
   )
 }

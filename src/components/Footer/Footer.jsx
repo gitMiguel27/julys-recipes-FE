@@ -7,9 +7,9 @@ import linkedin from '../../icons/linkedin.svg'
 
 function Footer() {
   return (
-    <Container>
+    <Container fluid className="px-0" >
       <Stack direction="horizontal" gap={3}>
-        <Container>
+        <Container className="px-0" style={{ maxWidth: '20vw' }}>
           <h3>Contact</h3>
           <Nav variant="underline" activeKey="/home" as="ul" className="flex-column">
             <Nav.Item as="li">
@@ -23,7 +23,7 @@ function Footer() {
             </Nav.Item>
           </Nav>
         </Container>
-        <Container>
+        <Container className="px-0" style={{ maxWidth: '20vw' }}>
           <h3>Links</h3>
           <Nav as="ul" className="flex-column">
             <Nav.Item as="li">

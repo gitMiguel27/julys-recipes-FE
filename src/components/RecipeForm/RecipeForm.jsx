@@ -1,7 +1,10 @@
+import { Container } from "react-bootstrap"
 
 function RecipeForm() {
   return (
-    <div>RecipeForm</div>
+    <Container style={{ height: '100vh' }} >
+      <h1>This is the Recipe Form Page</h1>
+    </Container>
   )
 }
 
