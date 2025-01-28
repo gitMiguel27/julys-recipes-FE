@@ -5,11 +5,12 @@ import Home from './components/Home/Home'
 import Footer from './components/Footer/Footer'
 import About from './components/About/About'
 import RecipeForm from './components/RecipeForm/RecipeForm'
+import { Container } from 'react-bootstrap'
 
 function App() {
 
   return (
-    <>
+    <Container id='app' fluid className='px-0'>
       <Header />
       <Routes>
         <Route path='/home' element={<Home />} />
@@ -17,7 +18,7 @@ function App() {
         <Route path='/form' element={<RecipeForm />} />
       </Routes>
       <Footer />
-    </>
+    </Container>
   )
 }
 
