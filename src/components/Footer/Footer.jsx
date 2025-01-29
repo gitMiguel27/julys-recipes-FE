@@ -19,7 +19,10 @@ function Footer() {
               <Nav.Link eventKey="link-1" as={NavLink} to='/about' className="p-0" >About</Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
-              <Nav.Link eventKey="link-2" as={NavLink} to='/form' className="p-0" >Form</Nav.Link>
+              <Nav.Link eventKey="link-2" as={NavLink} to='/recipes' className="p-0" >Recipes</Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+              <Nav.Link eventKey="link-3" as={NavLink} to='/form' className="p-0" >Form</Nav.Link>
             </Nav.Item>
           </Nav>
         </Container>

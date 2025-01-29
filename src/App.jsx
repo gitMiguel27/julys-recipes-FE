@@ -5,6 +5,7 @@ import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
 import About from './pages/About/About'
 import RecipeForm from './pages/RecipeForm/RecipeForm'
+import Recipes from './pages/Recipes/Recipes'
 import { Container } from 'react-bootstrap'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path='/recipes' element={<Recipes />} />
         <Route path='/form' element={<RecipeForm />} />
         <Route path='*' element={<h1>Error: 404 Not Found</h1>} />
       </Routes>
