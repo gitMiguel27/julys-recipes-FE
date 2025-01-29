@@ -1,11 +1,11 @@
 import './App.css'
-import { Route, Routes } from 'react-router'
 import Header from './components/Header/Header'
 import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
 import About from './pages/About/About'
 import RecipeForm from './pages/RecipeForm/RecipeForm'
 import Recipes from './pages/Recipes/Recipes'
+import { Route, Routes } from 'react-router'
 import { Container } from 'react-bootstrap'
 
 function App() {
