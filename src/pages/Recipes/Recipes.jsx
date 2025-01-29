@@ -7,13 +7,13 @@ function Recipes({ recipes }) {
     <Container style={{ height: '100vh' }} >
         <h1>This is the Recipes Page</h1>
         <Container>
-          {/* {
+          {
             recipes.map(recipe => {
               return (
-                <RecipeCard recipe={recipe} key={recipe[_id]} />
+                <RecipeCard recipe={recipe} key={recipe.title} />
               )
             })
-          } */}
+          }
         </Container>
   </Container>
   )

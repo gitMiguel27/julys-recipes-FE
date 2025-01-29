@@ -16,12 +16,11 @@ function App() {
     try {
       let response = await fetch(`http://localhost:3000/api/recipes`)
       let recipeData = await response.json()
-      
+
       setRecipes(recipeData)
     } catch (error) {
       console.error({ error: error.message })
     }
-    console.log(recipes)
   }
 
   useEffect(() => {
