@@ -1,9 +1,11 @@
 import { Container } from "react-bootstrap"
+import Welcome from "../../components/Welcome/Welcome"
+import './Home.css'
 
 function Home() {
   return (
-    <Container style={{ height: '100vh' }} >
-      <h1>This is the Home Page</h1>
+    <Container className="home d-flex" style={{ height: '100vh' }} >
+      <Welcome />
     </Container>
   )
 }
