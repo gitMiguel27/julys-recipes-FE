@@ -7,8 +7,20 @@ import RecipeForm from './pages/RecipeForm/RecipeForm'
 import Recipes from './pages/Recipes/Recipes'
 import { Route, Routes } from 'react-router'
 import { Container } from 'react-bootstrap'
+import { useEffect, useState } from 'react'
 
 function App() {
+  const [recipes, setRecipes] = useState([])
+
+  async function getRecipes() {
+    let response = await fetch(`http://localhost:3000/api/recipes`)
+    let recipesData = await response.json()
+    setRecipes(recipesData)
+  }
+
+  useEffect(() => {
+    getRecipes()
+  }, [])
 
   return (
     <Container id='app' fluid className='px-0'>
@@ -16,7 +28,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/recipes' element={<Recipes />} />
+        <Route path='/recipes' element={<Recipes recipes={recipes} />} />
         <Route path='/form' element={<RecipeForm />} />
         <Route path='*' element={<h1>Error: 404 Not Found</h1>} />
       </Routes>
