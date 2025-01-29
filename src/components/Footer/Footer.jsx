@@ -10,34 +10,34 @@ function Footer() {
     <Container fluid className="px-0" >
       <Stack direction="horizontal" gap={3}>
         <Container className="px-0" style={{ maxWidth: '20vw' }}>
-          <h3>Contact</h3>
-          <Nav variant="underline" activeKey="/home" as="ul" className="flex-column">
+          <h5>Contact</h5>
+          <Nav variant="underline" activeKey="/home" as="ul" className="flex-column" gap={0} >
             <Nav.Item as="li">
-              <Nav.Link as={NavLink} to='/home' >Home</Nav.Link>
+              <Nav.Link as={NavLink} to='/' className="p-0" >Home</Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
-              <Nav.Link eventKey="link-1" as={NavLink} to='/about' >About</Nav.Link>
+              <Nav.Link eventKey="link-1" as={NavLink} to='/about' className="p-0" >About</Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
-              <Nav.Link eventKey="link-2" as={NavLink} to='/form' >Form</Nav.Link>
+              <Nav.Link eventKey="link-2" as={NavLink} to='/form' className="p-0" >Form</Nav.Link>
             </Nav.Item>
           </Nav>
         </Container>
         <Container className="px-0" style={{ maxWidth: '20vw' }}>
-          <h3>Links</h3>
+          <h5>Links</h5>
           <Nav as="ul" className="flex-column">
             <Nav.Item as="li">
-              <Nav.Link href="https://www.linkedin.com/in/miguel-nazario/" target="_blank" >
+              <Nav.Link href="https://www.linkedin.com/in/miguel-nazario/" target="_blank" className="px-0" >
                 <img src={linkedin} alt="LinkedIn" />
               </Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
-              <Nav.Link href="https://github.com/gitMiguel27" target="_blank" >
+              <Nav.Link href="https://github.com/gitMiguel27" target="_blank" className="px-0" >
                 <img  src={github} alt="Github" />
               </Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
-              <Nav.Link href="https://gitmiguel27.github.io/portfolio/" target="_blank" >
+              <Nav.Link href="https://gitmiguel27.github.io/portfolio/" target="_blank" className="px-0" >
                 <img src={portfolio} alt="Portfolio" />
               </Nav.Link>
             </Nav.Item>
