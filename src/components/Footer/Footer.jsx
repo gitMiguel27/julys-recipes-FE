@@ -44,6 +44,7 @@ function Footer() {
           </Nav>
         </Container>
       </Stack>
+      <p className="text-center my-3">Copyright @ made by gitMiguel27</p>
     </Container>
   );
 }

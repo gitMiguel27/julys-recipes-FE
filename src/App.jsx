@@ -13,7 +13,7 @@ function App() {
     <Container id='app' fluid className='px-0'>
       <Header />
       <Routes>
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/form' element={<RecipeForm />} />
         <Route path='*' element={<h1>Error: 404 Not Found</h1>} />
