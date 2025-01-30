@@ -18,12 +18,12 @@ function Footer() {
               className="flex-column"
               gap={0}
             >
-              <Nav.Item as="li">
+              <Nav.Item as="li" style={{ width: 'max-content' }} >
                 <Nav.Link as={NavLink} to="/" className="p-0">
                   Home
                 </Nav.Link>
               </Nav.Item>
-              <Nav.Item as="li">
+              <Nav.Item as="li" style={{ width: 'max-content' }} >
                 <Nav.Link
                   eventKey="link-1"
                   as={NavLink}
@@ -33,7 +33,7 @@ function Footer() {
                   About
                 </Nav.Link>
               </Nav.Item>
-              <Nav.Item as="li">
+              <Nav.Item as="li" style={{ width: 'max-content' }} >
                 <Nav.Link
                   eventKey="link-2"
                   as={NavLink}
@@ -43,7 +43,7 @@ function Footer() {
                   Recipes
                 </Nav.Link>
               </Nav.Item>
-              <Nav.Item as="li">
+              <Nav.Item as="li" style={{ width: 'max-content' }} >
                 <Nav.Link
                   eventKey="link-3"
                   as={NavLink}
@@ -56,7 +56,7 @@ function Footer() {
             </Nav>
           </Container>
         </Col>
-        <Col>
+        <Col xs={12} md={6}>
           <Container className="px-0" style={{ maxWidth: "20vw" }}>
             <h5>Links</h5>
             <Nav as="ul" className="flex-column">
