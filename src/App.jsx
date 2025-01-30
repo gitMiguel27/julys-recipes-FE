@@ -5,6 +5,7 @@ import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import RecipeForm from './pages/RecipeForm/RecipeForm'
 import Recipes from './pages/Recipes/Recipes'
+import RecipePage from './pages/RecipePage/RecipePage'
 import { Route, Routes } from 'react-router'
 import { Container } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
@@ -35,6 +36,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/recipes' element={<Recipes recipes={recipes} />} />
         <Route path='/form' element={<RecipeForm />} />
+        <Route path='/:id' element={<RecipePage />} />
         <Route path='*' element={<h1>Error: 404 Not Found</h1>} />
       </Routes>
       <Footer />
