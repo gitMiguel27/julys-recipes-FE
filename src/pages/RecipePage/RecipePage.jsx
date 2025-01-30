@@ -1,10 +1,14 @@
-import { Container, Row, Col, Image, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Container, Row, Col, Image, ListGroup, Button } from 'react-bootstrap'
 
 function RecipePage({ currentRecipe }) {
   return (
     <Container className='d-flex text-center' style={{ height: '200vh' }}>
         <Row>
-            <Col xs={12} >
+            <Col className='d-flex justify-content-end my-auto' xs={4} md={12} >
+                <Button>Update</Button>
+                <Button>Delete</Button>
+            </Col>
+            <Col xs={8} md={12} >
                 <h2 >{currentRecipe.title}</h2>
             </Col>
             <Col xs={12} >
