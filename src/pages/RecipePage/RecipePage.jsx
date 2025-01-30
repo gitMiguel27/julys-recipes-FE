@@ -5,8 +5,8 @@ function RecipePage({ currentRecipe }) {
     <Container className='d-flex text-center' style={{ height: '200vh' }}>
         <Row>
             <Col className='d-flex justify-content-end my-auto' xs={4} md={12} >
-                <Button>Update</Button>
-                <Button>Delete</Button>
+                <Button variant='danger' >Update</Button>
+                <Button variant='danger' >Delete</Button>
             </Col>
             <Col xs={8} md={12} >
                 <h2 >{currentRecipe.title}</h2>
