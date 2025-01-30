@@ -16,6 +16,5 @@ function AboutContent() {
     </Container>
   )
 }
-// style={{ height: '50vh' }}
 
 export default AboutContent
