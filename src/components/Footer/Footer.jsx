@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Stack, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import github from '../../icons/github.svg'

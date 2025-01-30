@@ -1,9 +1,10 @@
 import { Container } from "react-bootstrap"
+import AboutContent from "../../components/AboutContent/AboutContent"
 
 function About() {
   return (
-    <Container style={{ height: '100vh' }} >
-      <h1>This is the About Page</h1>
+    <Container className="d-flex justify-content-center" style={{ height: '100vh' }} >
+      <AboutContent />
     </Container>
   )
 }

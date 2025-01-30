@@ -1,7 +1,7 @@
 import './App.css'
 import Header from './components/Header/Header'
-import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
+import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import RecipeForm from './pages/RecipeForm/RecipeForm'
 import Recipes from './pages/Recipes/Recipes'
