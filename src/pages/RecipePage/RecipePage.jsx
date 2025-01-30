@@ -23,7 +23,8 @@ function RecipePage({ currentRecipe }) {
                 </ListGroup>
             </Col>
             <Col xs={12} >
-                <Image src={currentRecipe.image} alt={currentRecipe.title} fluid rounded />
+                <h5>Cooking Instructions:</h5>
+                <p>{currentRecipe.instructions}</p>
             </Col>
         </Row>
     </Container>
