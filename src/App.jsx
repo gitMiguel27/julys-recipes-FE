@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [recipes, setRecipes] = useState([])
+  const [currentRecipe, setCurrentRecipe] = useState()
 
   async function getRecipes() {
     try {
@@ -34,9 +35,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/recipes' element={<Recipes recipes={recipes} />} />
+        <Route path='/recipes' element={<Recipes recipes={recipes} setCurrentRecipe={setCurrentRecipe} />} />
         <Route path='/form' element={<RecipeForm />} />
-        <Route path='/:id' element={<RecipePage />} />
+        <Route path='/:id' element={<RecipePage currentRecipe={currentRecipe} />} />
         <Route path='*' element={<h1>Error: 404 Not Found</h1>} />
       </Routes>
       <Footer />

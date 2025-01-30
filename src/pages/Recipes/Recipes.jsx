@@ -1,7 +1,7 @@
 import { Container, Row } from 'react-bootstrap'
 import RecipeCard from '../../components/RecipeCard/RecipeCard'
 
-function Recipes({ recipes }) {
+function Recipes({ recipes, setCurrentRecipe }) {
   return (
     <Container style={{ height: '100vh' }} >
         <Container className='mt-5 px-0' >
@@ -9,7 +9,7 @@ function Recipes({ recipes }) {
               {
                 recipes.map(recipe => {
                   return (
-                    <RecipeCard recipe={recipe} key={recipe.title} />
+                    <RecipeCard recipe={recipe} key={recipe.title} setCurrentRecipe={setCurrentRecipe} />
                   )
                 })
               }

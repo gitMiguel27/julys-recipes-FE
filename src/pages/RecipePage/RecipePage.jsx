@@ -1,9 +1,9 @@
 import { Container } from 'react-bootstrap'
 
-function RecipePage() {
+function RecipePage({ currentRecipe }) {
   return (
     <Container style={{ height: '100vh' }}>
-        <h1>Made it to Recipe Page</h1>
+        <h1>{currentRecipe.title}</h1>
     </Container>
   )
 }
