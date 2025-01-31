@@ -1,5 +1,6 @@
 .home {
-    background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ), url('../../assets/rb_2150020921.png');
+    /* background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ), url('../../assets/rb_2150020921.png'); */
+    background-image: url('../../assets/rb_2150020921.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
