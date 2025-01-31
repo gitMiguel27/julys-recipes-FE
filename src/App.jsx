@@ -1,4 +1,3 @@
-import './App.css'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
@@ -31,7 +30,7 @@ function App() {
   }, [])
 
   return (
-    <Container id='app' fluid className='px-0'>
+    <Container id='app' fluid className='px-0' >
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />

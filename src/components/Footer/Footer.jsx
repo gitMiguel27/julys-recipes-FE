@@ -6,7 +6,7 @@ import linkedin from "../../icons/linkedin.svg";
 
 function Footer() {
   return (
-    <Container fluid className="px-0">
+    <Container className="px-0">
       <Row >
         <Col xs={12} md={6} >
           <Container className="px-0" style={{ maxWidth: "20vw" }}>

@@ -15,11 +15,12 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
     return (
         <Container className='d-flex text-center' style={{ height: '200vh' }}>
             <Row>
-                <Col className='d-flex justify-content-end my-auto' xs={4} md={12} >
-                    <Button variant='danger' onClick={() => navigate(`/update/${currentRecipe._id}`)}>Update</Button>
+                <Col className='d-flex justify-content-end my-auto' xs={12} >
+                    <Button variant='danger' className='me-auto' onClick={() => navigate('/recipes')} >Back to Recipes</Button>
+                    <Button variant='danger' className='me-3' onClick={() => navigate(`/update/${currentRecipe._id}`)}>Update</Button>
                     <Button variant='danger' onClick={handleDeleteRecipe}>Delete</Button>
                 </Col>
-                <Col xs={8} md={12} >
+                <Col xs={12} >
                     <h2 >{currentRecipe.title}</h2>
                 </Col>
                 <Col xs={12} >
