@@ -1,24 +1,31 @@
 import { useState } from 'react'
-import { Form, Row, Col, Button, InputGroup, Container } from 'react-bootstrap';
+import { Form, Row, Col, Button, Container, Alert } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 
-function UpdateRecipe() {
-  const [validated, setValidated] = useState(false);
+function UpdateRecipe({ currentRecipe }) {
+  const [validated, setValidated] = useState(false)
+  const [isAlert, setIsAlert] = useState(false)
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
+  function handleSubmit (event) {
+    const form = event.currentTarget
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+      event.preventDefault()
+      event.stopPropagation()
     }
 
-    setValidated(true);
-  };
+    setValidated(true)
+    event.preventDefault()
+    setIsAlert(true)
+  }
 
   return (
     <Container style={{ height: '100vh' }}>
+      {
+        isAlert? <Alert variant='success'>Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >Go to Recipe.</Alert.Link></Alert> : <></> 
+      }
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Row className="mb-3">
+        <Row className="mb-5">
           <Form.Group as={Col} xs={12} controlId="titleValidation">
             <Form.Label>Title</Form.Label>
             <Form.Control
@@ -48,7 +55,7 @@ function UpdateRecipe() {
             <Form.Control type="text" placeholder="Ingredient" required />
             <Form.Control.Feedback></Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Please provide am ingredient.
+              Please provide an ingredient.
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} xs={12} controlId="instructionsValidation">
