@@ -9,14 +9,15 @@ function UpdateRecipe({ currentRecipe }) {
 
   function handleSubmit (event) {
     const form = event.currentTarget
+    
+    event.preventDefault()
     if (form.checkValidity() === false) {
-      event.preventDefault()
       event.stopPropagation()
+    } else {
+      setIsAlert(true)
     }
 
     setValidated(true)
-    event.preventDefault()
-    setIsAlert(true)
   }
 
   return (
