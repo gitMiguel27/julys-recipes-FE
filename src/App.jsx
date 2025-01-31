@@ -6,6 +6,7 @@ import About from './pages/About/About'
 import RecipeForm from './pages/RecipeForm/RecipeForm'
 import Recipes from './pages/Recipes/Recipes'
 import RecipePage from './pages/RecipePage/RecipePage'
+import UpdateRecipe from './pages/UpdateRecipe/UpdateRecipe'
 import { Route, Routes } from 'react-router'
 import { Container } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
@@ -38,6 +39,7 @@ function App() {
         <Route path='/recipes' element={<Recipes recipes={recipes} setCurrentRecipe={setCurrentRecipe} />} />
         <Route path='/form' element={<RecipeForm />} />
         <Route path='/:id' element={<RecipePage currentRecipe={currentRecipe} />} />
+        <Route path='/update/:id' element={<UpdateRecipe currentRecipe={currentRecipe} />} />
         <Route path='*' element={<h1>Error: 404 Not Found</h1>} />
       </Routes>
       <Footer />
