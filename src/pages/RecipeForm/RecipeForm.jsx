@@ -21,7 +21,7 @@ function RecipeForm() {
   return (
     <Container style={{ height: '100vh' }}>
       {
-        isAlert? <Alert variant='success'>Successfully created recipe. <Alert.Link as={NavLink} to={`/recipes}`} onClick={() => setIsAlert(false)} >Go to all recipes.</Alert.Link></Alert> : <></> 
+        isAlert? <Alert variant='success'>Successfully created recipe. <Alert.Link as={NavLink} to='/recipes' onClick={() => setIsAlert(false)} >Go to all recipes.</Alert.Link></Alert> : <></> 
       }
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-5">
