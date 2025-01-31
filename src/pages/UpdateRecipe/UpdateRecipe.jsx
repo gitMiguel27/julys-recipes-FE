@@ -22,7 +22,7 @@ function UpdateRecipe({ currentRecipe }) {
   return (
     <Container style={{ height: '100vh' }}>
       {
-        isAlert? <Alert variant='success'>Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >Go to Recipe.</Alert.Link></Alert> : <></> 
+        isAlert? <Alert variant='success'>Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >Go to recipe.</Alert.Link></Alert> : <></> 
       }
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-5">
@@ -70,7 +70,7 @@ function UpdateRecipe({ currentRecipe }) {
         <Button variant='danger' type="submit">Save</Button>
       </Form>
     </Container>
-  );
+  )
 }
 
 export default UpdateRecipe
