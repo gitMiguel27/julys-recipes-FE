@@ -3,7 +3,7 @@ import AboutContent from "../../components/AboutContent/AboutContent"
 
 function About() {
   return (
-    <Container className="d-flex justify-content-center" style={{ height: '100vh' }} >
+    <Container className="d-flex" style={{ height: '200vh' }} >
       <AboutContent />
     </Container>
   )

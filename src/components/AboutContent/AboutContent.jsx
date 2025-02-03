@@ -3,7 +3,7 @@ import ceviche from '../../assets/ceviche.jpg'
 
 function AboutContent() {
   return (
-    <Container className='d-flex flex-column justify-content-center align-items-center text-center gap-3' style={{ width: '75vw' }}>
+    <Container className='d-flex flex-column align-items-center text-center gap-3 mt-5' style={{ width: '75vw' }}>
       <Container>
         <Row className="justify-content-center">
           <Col xs={10} md={7} >

@@ -3,7 +3,7 @@ import RecipeCard from '../../components/RecipeCard/RecipeCard'
 
 function Recipes({ recipes, setCurrentRecipe }) {
   return (
-    <Container style={{ minHeight: '100vh', height: 'auto' }} >
+    <Container style={{ minHeight: '200vh', height: 'auto' }} >
         <Container className='mt-5 px-0' >
           <Row>
               {

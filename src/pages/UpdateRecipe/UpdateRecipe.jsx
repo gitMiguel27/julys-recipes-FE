@@ -21,7 +21,7 @@ function UpdateRecipe({ currentRecipe }) {
   }
 
   return (
-    <Container style={{ height: '100vh' }}>
+    <Container style={{ height: '200vh' }}>
       {
         isAlert? <Alert variant='success'>Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >Go to recipe.</Alert.Link></Alert> : <></> 
       }

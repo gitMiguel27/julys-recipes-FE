@@ -20,7 +20,7 @@ function RecipeForm() {
   }
 
   return (
-    <Container style={{ height: '100vh' }}>
+    <Container style={{ height: '200vh' }}>
       {
         isAlert? <Alert variant='success'>Successfully created recipe. <Alert.Link as={NavLink} to='/recipes' onClick={() => setIsAlert(false)} >Go to all recipes.</Alert.Link></Alert> : <></> 
       }
