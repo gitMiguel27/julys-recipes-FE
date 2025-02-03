@@ -122,7 +122,6 @@ function RecipeForm({ recipes, setRecipes }) {
               return (
                 <Form.Group key={index} as={Col} xs={12} md={3} controlId={`input-${index}`}>
                   <Form.Control
-                    required
                     type="text"
                     name='ingredients'
                     value={input}

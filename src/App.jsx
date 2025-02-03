@@ -38,7 +38,7 @@ function App() {
         <Route path='/recipes' element={<Recipes recipes={recipes} setCurrentRecipe={setCurrentRecipe} />} />
         <Route path='/form' element={<RecipeForm recipes={recipes} setRecipes={setRecipes} />} />
         <Route path='/:id' element={<RecipePage currentRecipe={currentRecipe} recipes={recipes} setRecipes={setRecipes} />} />
-        <Route path='/update/:id' element={<UpdateRecipe currentRecipe={currentRecipe} />} />
+        <Route path='/update/:id' element={<UpdateRecipe currentRecipe={currentRecipe} setCurrentRecipe={setCurrentRecipe} recipes={recipes} setRecipes={setRecipes} />} />
         <Route path='*' element={<h1>Error: 404 Not Found</h1>} />
       </Routes>
       <Footer />

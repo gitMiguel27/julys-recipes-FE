@@ -1,58 +1,94 @@
 import { useState } from "react";
 import { Form, Row, Col, Button, Container, Alert, InputGroup, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import './UpdateRecipe.css'
 
-function UpdateRecipe({ currentRecipe }) {
-  const [validated, setValidated] = useState(false);
-  const [isAlert, setIsAlert] = useState(false);
-  const [ingredientInputs, setIngredientInputs] = useState(currentRecipe.ingredients);
-  const [ingredient, setIngredient] = useState("");
+function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) {
+  const [validated, setValidated] = useState(false)
+  const [isAlert, setIsAlert] = useState(false)
+  const [ingredientInputs, setIngredientInputs] = useState(currentRecipe.ingredients)
+  const [ingredient, setIngredient] = useState("")
   const [formData, setFormData] = useState({
     title: currentRecipe.title,
     image: currentRecipe.image,
     ingredients: currentRecipe.ingredients,
     instructions: currentRecipe.instructions,
-  });
+  })
 
   function addIngredient() {
-    setIngredientInputs([ ingredient, ...ingredientInputs]);
+    setIngredientInputs([ ingredient, ...ingredientInputs])
 
     setFormData({
       ...formData,
       ingredients: [...formData.ingredients, ingredient],
-    });
+    })
 
-    setIngredient("");
+    setIngredient("")
+  }
+
+  function handleDeleteIngredient(event) {
+    const ingredientToDelete = event.target.value
+
+    setIngredientInputs(ingredientInputs => ingredientInputs.filter(input => input !== ingredientToDelete))
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      ingredients: prevFormData.ingredients.filter(
+        (ingredient) => ingredient !== ingredientToDelete
+      ),
+    }))
   }
 
   function handleChange(event) {
     if (event.target.name === "ingredients") {
-      setIngredient(event.target.value);
-      return;
+      setIngredient(event.target.value)
+      return
     }
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
-    });
+    })
   }
 
   function handleSubmit(event) {
-    const form = event.currentTarget;
+    const form = event.currentTarget
 
-    event.preventDefault();
+    event.preventDefault()
     if (form.checkValidity() === false) {
-      event.stopPropagation();
+      event.stopPropagation()
     } else {
-      setIsAlert(true);
+      setIsAlert(true)
+      updateRecipe(formData)
     }
 
-    setValidated(true);
+    setValidated(true)
+  }
+
+  async function updateRecipe(createdRecipe) {
+    try {
+      let response = await fetch(`http://localhost:3000/api/recipes/${currentRecipe._id}`, {
+        method: "PUT",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(createdRecipe),
+      })
+      let updatedRecipe = await response.json()
+      let updatedRecipeList = recipes.map(recipe => {
+        if(recipe._id === updatedRecipe._id) {
+          return updatedRecipe
+        }
+        return recipe
+      })
+
+      setRecipes([updatedRecipeList])
+      setCurrentRecipe(updatedRecipe)
+    } catch (error) {
+      console.error({ error: error.message })
+    }
   }
 
   return (
     <Container className="my-5" style={{ height: "200vh" }}>
       {
-        isAlert ? <Alert variant="success">Successfully updated recipe.<Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >Go to recipe.</Alert.Link></Alert> : <></>
+        isAlert ? <Alert variant="success">Successfully updated recipe.<Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} > Go to recipe.</Alert.Link></Alert> : <></>
       }
       <Row>
         <Col xs={12} md={4} className="mx-auto my-3">
@@ -66,7 +102,7 @@ function UpdateRecipe({ currentRecipe }) {
             <Form.Control
               required
               type="text"
-              placeholder={currentRecipe.title}
+              value={currentRecipe.title}
               name="title"
               onChange={handleChange}
             />
@@ -80,7 +116,7 @@ function UpdateRecipe({ currentRecipe }) {
             <Form.Control
               required
               type="text"
-              placeholder={currentRecipe.image}
+              value={currentRecipe.image}
               name="image"
               onChange={handleChange}
             />
@@ -93,15 +129,14 @@ function UpdateRecipe({ currentRecipe }) {
             <Form.Label>Ingredients</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
-                required
                 type="text"
                 name="ingredients"
                 onChange={handleChange}
               />
               <Button variant="danger" onClick={addIngredient} >Add Ingredient</Button>
-              <Form.Control.Feedback type="invalid">
+              {/* <Form.Control.Feedback type="invalid">
                 Please provide an ingredient.
-              </Form.Control.Feedback>
+              </Form.Control.Feedback> */}
             </InputGroup>
           </Form.Group>
           <Row className="mt-3">
@@ -117,10 +152,11 @@ function UpdateRecipe({ currentRecipe }) {
                   controlId={`input-${index}`}
                 >
                   <Form.Control
-                    required
+                    className="ingredient-input"
                     type="text"
                     name="ingredients"
                     value={input}
+                    onClick={handleDeleteIngredient}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please do not leave blank.
@@ -135,7 +171,7 @@ function UpdateRecipe({ currentRecipe }) {
             <Form.Control
               required
               as="textarea"
-              placeholder={currentRecipe.instructions}
+              value={currentRecipe.instructions}
               name="instructions"
               onChange={handleChange}
             />
