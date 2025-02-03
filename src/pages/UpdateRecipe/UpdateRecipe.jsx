@@ -72,10 +72,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
       })
       let updatedRecipe = await response.json()
       let updatedRecipeList = recipes.map(recipe => {
-        if(recipe._id === updatedRecipe._id) {
-          return updatedRecipe
-        }
-        return recipe
+        recipe._id === updatedRecipe._id ? { ...recipe, ...updatedRecipe } : recipe
       })
 
       setRecipes([updatedRecipeList])
@@ -88,7 +85,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
   return (
     <Container className="my-5" style={{ height: "200vh" }}>
       {
-        isAlert ? <Alert variant="success">Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >Go to recipe.</Alert.Link></Alert> : <></>
+        isAlert ? <Alert variant="success">Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >View recipes.</Alert.Link></Alert> : <></>
       }
       <Row>
         <Col xs={12} md={4} className="mx-auto my-3">
