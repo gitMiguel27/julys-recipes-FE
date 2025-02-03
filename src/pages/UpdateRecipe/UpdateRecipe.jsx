@@ -5,17 +5,17 @@ import { NavLink } from "react-router-dom";
 function UpdateRecipe({ currentRecipe }) {
   const [validated, setValidated] = useState(false);
   const [isAlert, setIsAlert] = useState(false);
-  const [ingredientInputs, setIngredientInputs] = useState([]);
+  const [ingredientInputs, setIngredientInputs] = useState(currentRecipe.ingredients);
   const [ingredient, setIngredient] = useState("");
   const [formData, setFormData] = useState({
-    title: "",
-    image: "",
-    ingredients: [],
-    instructions: "",
+    title: currentRecipe.title,
+    image: currentRecipe.image,
+    ingredients: currentRecipe.ingredients,
+    instructions: currentRecipe.instructions,
   });
 
   function addIngredient() {
-    setIngredientInputs([{ value: ingredient }, ...ingredientInputs]);
+    setIngredientInputs([ ingredient, ...ingredientInputs]);
 
     setFormData({
       ...formData,
@@ -51,20 +51,9 @@ function UpdateRecipe({ currentRecipe }) {
 
   return (
     <Container className="my-5" style={{ height: "200vh" }}>
-      {isAlert ? (
-        <Alert variant="success">
-          Successfully updated recipe.{" "}
-          <Alert.Link
-            as={NavLink}
-            to={`/${currentRecipe._id}`}
-            onClick={() => setIsAlert(false)}
-          >
-            Go to recipe.
-          </Alert.Link>
-        </Alert>
-      ) : (
-        <></>
-      )}
+      {
+        isAlert ? <Alert variant="success">Successfully updated recipe.<Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >Go to recipe.</Alert.Link></Alert> : <></>
+      }
       <Row>
         <Col xs={12} md={4} className="mx-auto my-3">
           <Image src={currentRecipe.image} alt={currentRecipe.title} fluid rounded />
@@ -109,17 +98,16 @@ function UpdateRecipe({ currentRecipe }) {
                 name="ingredients"
                 onChange={handleChange}
               />
-                variant="danger" onClick={addIngredient}>
-                Add Ingredient
-              </>
+              <Button variant="danger" onClick={addIngredient} >Add Ingredient</Button>
               <Form.Control.Feedback type="invalid">
                 Please provide an ingredient.
               </Form.Control.Feedback>
             </InputGroup>
           </Form.Group>
           <Row className="mt-3">
-            {ingredientInputs.map((input) => {
-              let index = ingredientInputs.indexOf(input);
+          {
+            ingredientInputs.map((input) => {
+              let index = ingredientInputs.indexOf(input)
               return (
                 <Form.Group
                   key={index}
@@ -132,14 +120,15 @@ function UpdateRecipe({ currentRecipe }) {
                     required
                     type="text"
                     name="ingredients"
-                    value={input.value}
+                    value={input}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please do not leave blank.
                   </Form.Control.Feedback>
                 </Form.Group>
-              );
-            })}
+              )
+            })
+          }
           </Row>
           <Form.Group as={Col} xs={12} controlId="instructionsValidation">
             <Form.Label>Instructions</Form.Label>

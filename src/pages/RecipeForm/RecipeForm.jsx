@@ -15,7 +15,7 @@ function RecipeForm({ recipes, setRecipes }) {
   })
 
   function addIngredient() {
-    setIngredientInputs([{ value: ingredient }, ...ingredientInputs])
+    setIngredientInputs([ ingredient, ...ingredientInputs])
 
     setFormData({
       ...formData,
@@ -59,7 +59,7 @@ function RecipeForm({ recipes, setRecipes }) {
       })
       let newRecipe = await response.json()
 
-      setRecipes([newRecipe, ...recipes])
+      setRecipes([...recipes, newRecipe])
     } catch (error) {
       console.error({ error: error.message })
     }
@@ -125,7 +125,7 @@ function RecipeForm({ recipes, setRecipes }) {
                     required
                     type="text"
                     name='ingredients'
-                    value={input.value}
+                    value={input}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please do not leave blank.
