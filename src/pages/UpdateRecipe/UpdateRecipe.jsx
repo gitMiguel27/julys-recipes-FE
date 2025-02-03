@@ -1,60 +1,84 @@
-import { useState } from 'react'
-import { Form, Row, Col, Button, Container, Alert, InputGroup } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-
+import { useState } from "react";
+import {
+  Form,
+  Row,
+  Col,
+  Button,
+  Container,
+  Alert,
+  InputGroup,
+  Image,
+} from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 function UpdateRecipe({ currentRecipe }) {
-  const [validated, setValidated] = useState(false)
-  const [isAlert, setIsAlert] = useState(false)
-  const [ingredientInputs, setIngredientInputs] = useState([])
-  const [ingredient, setIngredient] = useState('')
+  const [validated, setValidated] = useState(false);
+  const [isAlert, setIsAlert] = useState(false);
+  const [ingredientInputs, setIngredientInputs] = useState([]);
+  const [ingredient, setIngredient] = useState("");
   const [formData, setFormData] = useState({
-    title: '',
-    image: '',
+    title: "",
+    image: "",
     ingredients: [],
-    instructions: ''
-  })
+    instructions: "",
+  });
 
   function addIngredient() {
-    setIngredientInputs([{ value: ingredient }, ...ingredientInputs])
+    setIngredientInputs([{ value: ingredient }, ...ingredientInputs]);
 
     setFormData({
       ...formData,
-      ingredients: [...formData.ingredients, ingredient]
-    })
+      ingredients: [...formData.ingredients, ingredient],
+    });
 
-    setIngredient('')
+    setIngredient("");
   }
 
   function handleChange(event) {
-    if (event.target.name === 'ingredients') {
-      setIngredient(event.target.value)
-      return
+    if (event.target.name === "ingredients") {
+      setIngredient(event.target.value);
+      return;
     }
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
-    })
+      [event.target.name]: event.target.value,
+    });
   }
 
   function handleSubmit(event) {
-    const form = event.currentTarget
-    
-    event.preventDefault()
+    const form = event.currentTarget;
+
+    event.preventDefault();
     if (form.checkValidity() === false) {
-      event.stopPropagation()
+      event.stopPropagation();
     } else {
-      setIsAlert(true)
+      setIsAlert(true);
     }
 
-    setValidated(true)
+    setValidated(true);
   }
 
   return (
-    <Container className='my-5' style={{ height: '200vh' }}>
-      {
-        isAlert? <Alert variant='success'>Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >Go to recipe.</Alert.Link></Alert> : <></> 
-      }
+    <Container className="my-5" style={{ height: "200vh" }}>
+      {isAlert ? (
+        <Alert variant="success">
+          Successfully updated recipe.{" "}
+          <Alert.Link
+            as={NavLink}
+            to={`/${currentRecipe._id}`}
+            onClick={() => setIsAlert(false)}
+          >
+            Go to recipe.
+          </Alert.Link>
+        </Alert>
+      ) : (
+        <></>
+      )}
+      <Row>
+        <Col xs={12} md={4} className="mx-auto my-3">
+          <Image src={currentRecipe.image} alt={currentRecipe.title} fluid rounded />
+        </Col>
+      </Row>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-5">
           <Form.Group as={Col} xs={12} controlId="titleValidation">
@@ -62,8 +86,8 @@ function UpdateRecipe({ currentRecipe }) {
             <Form.Control
               required
               type="text"
-              placeholder="Title of Recipe"
-              name='title'
+              placeholder={currentRecipe.title}
+              name="title"
               onChange={handleChange}
             />
             <Form.Control.Feedback>Sounds yummy!</Form.Control.Feedback>
@@ -76,8 +100,8 @@ function UpdateRecipe({ currentRecipe }) {
             <Form.Control
               required
               type="text"
-              placeholder="Image Url"
-              name='image'
+              placeholder={currentRecipe.image}
+              name="image"
               onChange={handleChange}
             />
             <Form.Control.Feedback>Looks yummy!</Form.Control.Feedback>
@@ -91,55 +115,64 @@ function UpdateRecipe({ currentRecipe }) {
               <Form.Control
                 required
                 type="text"
-                placeholder="Ingredient"
-                name='ingredients'
+                name="ingredients"
                 onChange={handleChange}
               />
-              <Button variant='danger' onClick={addIngredient}>Add Ingredient</Button>
+              <Button variant="danger" onClick={addIngredient}>
+                Add Ingredient
+              </Button>
               <Form.Control.Feedback type="invalid">
                 Please provide an ingredient.
               </Form.Control.Feedback>
             </InputGroup>
           </Form.Group>
-          <Row className='mt-3'>
-          {
-            ingredientInputs.map((input) => {
-              let index = ingredientInputs.indexOf(input)
+          <Row className="mt-3">
+            {ingredientInputs.map((input) => {
+              let index = ingredientInputs.indexOf(input);
               return (
-                <Form.Group key={index} as={Col} xs={12} md={3} controlId={`input-${index}`}>
+                <Form.Group
+                  key={index}
+                  as={Col}
+                  xs={12}
+                  md={3}
+                  controlId={`input-${index}`}
+                >
                   <Form.Control
                     required
                     type="text"
-                    name='ingredients'
+                    name="ingredients"
                     value={input.value}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please do not leave blank.
                   </Form.Control.Feedback>
                 </Form.Group>
-              )
-            })
-          }
+              );
+            })}
           </Row>
           <Form.Group as={Col} xs={12} controlId="instructionsValidation">
             <Form.Label>Instructions</Form.Label>
             <Form.Control
               required
               as="textarea"
-              placeholder="Cooking Instructions Here..."
-              name='instructions'
+              placeholder={currentRecipe.instructions}
+              name="instructions"
               onChange={handleChange}
             />
-            <Form.Control.Feedback>Can&apos;t wait to try it.</Form.Control.Feedback>
+            <Form.Control.Feedback>
+              Can&apos;t wait to try it.
+            </Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
               Please provide some cooking instructions.
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
-        <Button variant='danger' type="submit">Save</Button>
+        <Button variant="danger" type="submit">
+          Save
+        </Button>
       </Form>
     </Container>
-  )
+  );
 }
 
-export default UpdateRecipe
+export default UpdateRecipe;

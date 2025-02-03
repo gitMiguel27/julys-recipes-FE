@@ -106,7 +106,6 @@ function RecipeForm({ recipes, setRecipes }) {
               <Form.Control
                 required
                 type="text"
-                placeholder="Ingredient"
                 name='ingredients'
                 onChange={handleChange}
               />
