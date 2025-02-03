@@ -1,14 +1,5 @@
 import { useState } from "react";
-import {
-  Form,
-  Row,
-  Col,
-  Button,
-  Container,
-  Alert,
-  InputGroup,
-  Image,
-} from "react-bootstrap";
+import { Form, Row, Col, Button, Container, Alert, InputGroup, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 function UpdateRecipe({ currentRecipe }) {
@@ -118,9 +109,9 @@ function UpdateRecipe({ currentRecipe }) {
                 name="ingredients"
                 onChange={handleChange}
               />
-              <Button variant="danger" onClick={addIngredient}>
+                variant="danger" onClick={addIngredient}>
                 Add Ingredient
-              </Button>
+              </>
               <Form.Control.Feedback type="invalid">
                 Please provide an ingredient.
               </Form.Control.Feedback>
