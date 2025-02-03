@@ -13,20 +13,26 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
     }
 
     return (
-        <Container className='d-flex text-center' style={{ height: '200vh' }}>
+        <Container className='text-center my-5' style={{ height: '200vh' }}>
             <Row>
                 <Col className='d-flex justify-content-end my-auto' xs={12} >
                     <Button variant='danger' className='me-auto' onClick={() => navigate('/recipes')} >Back to Recipes</Button>
                     <Button variant='danger' className='me-3' onClick={() => navigate(`/update/${currentRecipe._id}`)}>Update</Button>
                     <Button variant='danger' onClick={handleDeleteRecipe}>Delete</Button>
                 </Col>
-                <Col xs={12} >
+            </Row>
+            <Row>
+                <Col xs={12} className='my-3' >
                     <h2 >{currentRecipe.title}</h2>
                 </Col>
-                <Col xs={12} >
+            </Row>
+            <Row>
+                <Col xs={12} md={4} className='mx-auto my-3' >
                     <Image src={currentRecipe.image} alt={currentRecipe.title} fluid rounded />
                 </Col>
-                <Col xs={12} >
+            </Row>
+            <Row>
+                <Col xs={12} md={4} className='mx-auto my-3' >
                     <h5>Ingredients:</h5>
                     <ListGroup as='ol' numbered >
                         {
@@ -38,7 +44,9 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
                         }
                     </ListGroup>
                 </Col>
-                <Col xs={12} >
+            </Row>
+            <Row>
+                <Col xs={12} md={10} className='mx-auto my-3' >
                     <h5>Cooking Instructions:</h5>
                     <p>{currentRecipe.instructions}</p>
                 </Col>
