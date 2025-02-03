@@ -131,9 +131,6 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
                 onChange={handleChange}
               />
               <Button variant="danger" onClick={addIngredient} >Add Ingredient</Button>
-              {/* <Form.Control.Feedback type="invalid">
-                Please provide an ingredient.
-              </Form.Control.Feedback> */}
             </InputGroup>
           </Form.Group>
           <Row className="mt-3">
@@ -152,7 +149,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
                     className="ingredient-input"
                     type="text"
                     name="ingredients"
-                    value={input}
+                    defaultValue={input}
                     onClick={handleDeleteIngredient}
                   />
                   <Form.Control.Feedback type="invalid">

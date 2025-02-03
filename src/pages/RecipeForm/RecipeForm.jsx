@@ -124,7 +124,7 @@ function RecipeForm({ recipes, setRecipes }) {
                   <Form.Control
                     type="text"
                     name='ingredients'
-                    value={input}
+                    defaultValue={input}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please do not leave blank.
