@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Form, Row, Col, Button, Container, Alert, InputGroup } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
-function RecipeForm() {
+function RecipeForm({ recipes, setRecipes }) {
   const [validated, setValidated] = useState(false)
   const [isAlert, setIsAlert] = useState(false)
   const [ingredientInputs, setIngredientInputs] = useState([])
@@ -36,7 +36,7 @@ function RecipeForm() {
     })
   }
 
-  function handleSubmit (event) {
+  function handleSubmit(event) {
     const form = event.currentTarget
     
     event.preventDefault()
@@ -44,10 +44,25 @@ function RecipeForm() {
       event.stopPropagation()
     } else {
       setIsAlert(true)
+      postRecipe(formData)
     }
 
     setValidated(true)
-    console.log(formData)
+  }
+
+  async function postRecipe(createdRecipe) {
+    try {
+      let response = await fetch(`http://localhost:3000/api/recipes`, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(createdRecipe),
+      })
+      let newRecipe = await response.json()
+
+      setRecipes([newRecipe, ...recipes])
+    } catch (error) {
+      console.error({ error: error.message })
+    }
   }
 
   return (
