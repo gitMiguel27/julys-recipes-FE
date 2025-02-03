@@ -5,11 +5,21 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
     const navigate = useNavigate()
 
     function handleDeleteRecipe() {
-        console.log('clicked!')
-        const newRecipesArr = recipes.filter(recipe => recipe._id !== currentRecipe._id)
+        deleteRecipe()
 
+        const newRecipesArr = recipes.filter(recipe => recipe._id !== currentRecipe._id)
         setRecipes(newRecipesArr)
         navigate('/recipes')
+    }
+
+    async function deleteRecipe() {
+        try {
+            await fetch(`http://localhost:3000/api/recipes/${currentRecipe._id}`, {
+                method: "DELETE",
+            })
+        } catch (error) {
+            console.error({ error: error.message })
+        }
     }
 
     return (
