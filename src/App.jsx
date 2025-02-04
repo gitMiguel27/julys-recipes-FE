@@ -9,6 +9,7 @@ import UpdateRecipe from './pages/UpdateRecipe/UpdateRecipe'
 import { Route, Routes } from 'react-router'
 import { Container } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [recipes, setRecipes] = useState([])
@@ -32,6 +33,7 @@ function App() {
   return (
     <Container id='app' fluid className='px-0' >
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
