@@ -1,8 +1,16 @@
-# React + Vite
+# July's Recipes Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+These recipes are inspired by my mom&apos;s cooking. She doesn&apos;t have any culinary training, but her food always comes out tasty because she cooks from the heart. I am sharing her recipes on here so her talent and love for food is recognized, and for people to learn about Peruvian cuisine, one of the best cuisines out there. Hope you enjoy!
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project uses React + Bootstrap and react-router-dom. To install these dependencies, run the following command:
+**npm i react-bootstrap react-router-dom**
+
+## Development
+
+This project uses React + Vite. During development, you can use the **npm run dev** command to open in your local environment.
+
+## Connecting to Back-End
+
+This project works with the following back-end repo: https://github.com/gitMiguel27/julys-recipes-BE Be sure to follow respective installation and development instructions.
