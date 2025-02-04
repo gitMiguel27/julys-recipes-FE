@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
-    <Navbar expand="lg" sticky="top" data-bs-theme="dark" bg="dark">
+    <Navbar expand="md" sticky="top" data-bs-theme="dark" bg="dark">
       <Container>
         <Navbar.Brand as={NavLink} to="/">July&apos;s Recipes</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
