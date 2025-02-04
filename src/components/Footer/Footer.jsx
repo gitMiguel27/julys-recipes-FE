@@ -3,13 +3,14 @@ import { NavLink } from "react-router-dom";
 import github from "../../icons/github.svg";
 import portfolio from "../../icons/portfolio.svg";
 import linkedin from "../../icons/linkedin.svg";
+import LanguageSelector from "../LanguageSelector";
 
 function Footer() {
   return (
     <Container className="px-0">
       <Row >
-        <Col xs={12} md={6} >
-          <Container className="px-0" style={{ maxWidth: "20vw" }}>
+        <Col xs={12} md={4} >
+          <Container className="px-0" style={{ maxWidth: "15vw" }}>
             <h5>Contact</h5>
             <Nav
               variant="underline"
@@ -56,8 +57,8 @@ function Footer() {
             </Nav>
           </Container>
         </Col>
-        <Col xs={12} md={6}>
-          <Container className="px-0" style={{ maxWidth: "20vw" }}>
+        <Col xs={12} md={4}>
+          <Container className="px-0" style={{ maxWidth: "15vw" }}>
             <h5>Links</h5>
             <Nav as="ul" className="flex-column">
               <Nav.Item as="li">
@@ -90,6 +91,7 @@ function Footer() {
             </Nav>
           </Container>
         </Col>
+        <LanguageSelector />
       </Row>
       <p className="text-center my-3">Copyright @ made by gitMiguel27</p>
     </Container>

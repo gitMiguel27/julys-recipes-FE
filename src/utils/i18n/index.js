@@ -1,6 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-
+import LanguageDetector from 'i18next-browser-languagedetector'
 import enLang from './locales/en/en.json'
 import spLang from './locales/sp/sp.json'
 
@@ -17,8 +17,10 @@ const resources = {
 };
 
 i18n
+  .use(LanguageDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
+    debug: true,
     resources,
     fallbackLng: 'en',
     lng: "sp", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
