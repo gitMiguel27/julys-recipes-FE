@@ -72,10 +72,11 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
       })
       let updatedRecipe = await response.json()
       let updatedRecipeList = recipes.map(recipe => {
-        recipe._id === updatedRecipe._id ? { ...recipe, ...updatedRecipe } : recipe
+        return (
+          recipe._id === updatedRecipe._id ? updatedRecipe : recipe
+        )
       })
-
-      setRecipes([updatedRecipeList])
+      setRecipes(updatedRecipeList)
       setCurrentRecipe(updatedRecipe)
     } catch (error) {
       console.error({ error: error.message })
@@ -99,7 +100,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
             <Form.Control
               required
               type="text"
-              value={currentRecipe.title}
+              defaultValue={currentRecipe.title}
               name="title"
               onChange={handleChange}
             />
@@ -113,7 +114,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
             <Form.Control
               required
               type="text"
-              value={currentRecipe.image}
+              defaultValue={currentRecipe.image}
               name="image"
               onChange={handleChange}
             />
@@ -165,7 +166,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
             <Form.Control
               required
               as="textarea"
-              value={currentRecipe.instructions}
+              defaultValue={currentRecipe.instructions}
               name="instructions"
               onChange={handleChange}
             />
