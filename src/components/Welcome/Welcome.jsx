@@ -13,7 +13,7 @@ function Welcome() {
         <Trans i18nKey='welcomeHeader3' >
           <h3>Dishes inspired by my mom<br/>Authentically, Peruvian</h3>
         </Trans>
-        <Button variant='danger' style={{ width: 'max-content' }} onClick={() => navigate('/recipes')} >View Recipes</Button>
+        <Button variant='danger' style={{ width: 'max-content' }} onClick={() => navigate('/recipes')} >{t('viewRecipesButton')}</Button>
     </Container>
   )
 }

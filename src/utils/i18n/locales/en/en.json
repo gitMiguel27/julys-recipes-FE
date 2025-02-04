@@ -1,4 +1,17 @@
 {
-    "welcomeHeader1": "Welcome to July's Recipes",
-    "welcomeHeader3": "<0>Dishes inspired by my mom<1/>Authentically, Peruvian</0>"
-  }
+  "welcomeHeader1": "Welcome to July's Recipes",
+  "welcomeHeader3": "<0>Dishes inspired by my mom<1/>Authentically, Peruvian</0>",
+  "viewRecipesButton": "View Recipes",
+
+  "brandNavbar": "{{brand}}",
+  "homeNavbar": "Home",
+  "aboutNavbar": "About",
+  "recipesNavbar": "Recipes",
+  "formNavbar": "Form",
+
+  "footerContactHeading": "Contact",
+  "footerLinksHeading": "Links",
+  "footerLanguageHeading": "Language",
+  "footerCopyright": "Copyright © 2025 made by gitMiguel27"
+
+}

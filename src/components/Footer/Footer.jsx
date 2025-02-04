@@ -4,14 +4,17 @@ import github from "../../icons/github.svg";
 import portfolio from "../../icons/portfolio.svg";
 import linkedin from "../../icons/linkedin.svg";
 import LanguageSelector from "../LanguageSelector";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const { t } = useTranslation()
+
   return (
     <Container className="px-0">
       <Row >
-        <Col xs={12} md={4} >
+        <Col xs={12} md={4} className="mb-2" >
           <Container className="px-0" style={{ maxWidth: "15vw" }}>
-            <h5>Contact</h5>
+            <h5>{t('footerContactHeading')}</h5>
             <Nav
               variant="underline"
               activeKey="/home"
@@ -21,7 +24,7 @@ function Footer() {
             >
               <Nav.Item as="li" style={{ width: 'max-content' }} >
                 <Nav.Link as={NavLink} to="/" className="p-0">
-                  Home
+                  {t('homeNavbar')}
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ width: 'max-content' }} >
@@ -31,7 +34,7 @@ function Footer() {
                   to="/about"
                   className="p-0"
                 >
-                  About
+                  {t('aboutNavbar')}
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ width: 'max-content' }} >
@@ -41,7 +44,7 @@ function Footer() {
                   to="/recipes"
                   className="p-0"
                 >
-                  Recipes
+                  {t('recipesNavbar')}
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ width: 'max-content' }} >
@@ -51,15 +54,15 @@ function Footer() {
                   to="/form"
                   className="p-0"
                 >
-                  Form
+                  {t('formNavbar')}
                 </Nav.Link>
               </Nav.Item>
             </Nav>
           </Container>
         </Col>
-        <Col xs={12} md={4}>
+        <Col xs={12} md={4} className="mb-2" >
           <Container className="px-0" style={{ maxWidth: "15vw" }}>
-            <h5>Links</h5>
+            <h5>{t('footerLinksHeading')}</h5>
             <Nav as="ul" className="flex-column">
               <Nav.Item as="li">
                 <Nav.Link
@@ -93,7 +96,7 @@ function Footer() {
         </Col>
         <LanguageSelector />
       </Row>
-      <p className="text-center my-3">Copyright @ made by gitMiguel27</p>
+      <p className="text-center my-3">{t('footerCopyright')}</p>
     </Container>
   );
 }

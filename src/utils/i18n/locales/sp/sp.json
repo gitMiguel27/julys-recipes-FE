@@ -1,4 +1,17 @@
 {
-    "welcomeHeader1": "Bienvenidos a July's Recipes",
-    "welcomeHeader3": "<0>Platos inspirados en mi mamá<1/>Cien por ciento, peruano</0>"
-  }
+  "welcomeHeader1": "Bienvenidos a July's Recipes",
+  "welcomeHeader3": "<0>Platos inspirados en mi mamá<1/>Cien por ciento, peruano</0>",
+  "viewRecipesButton": "Ver Recetas",
+
+  "brandNavbar": "{{brand}}",
+  "homeNavbar": "Inicio",
+  "aboutNavbar": "Acerca de",
+  "recipesNavbar": "Recetas",
+  "formNavbar": "Formulario",
+
+  "footerContactHeading": "Contacto",
+  "footerLinksHeading": "Menú de navegación",
+  "footerLanguageHeading": "Idioma",
+  "footerCopyright": "Derechos de autor © 2025 hecho por gitMiguel27"
+
+}
