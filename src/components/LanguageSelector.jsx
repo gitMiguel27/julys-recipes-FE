@@ -19,7 +19,6 @@ function LanguageSelector() {
         <Container className="px-0" style={{ maxWidth: "15vw" }}>
             <h5>Languages</h5>
             <Nav
-                variant="underline"
                 as="ul"
                 className="flex-column"
                 gap={0}
@@ -28,7 +27,7 @@ function LanguageSelector() {
                     languages.map((language) => {
                         return (
                             <Nav.Item key={language.code} as="li" style={{ width: "max-content" }} onClick={() => changeLanguage(language.code)}>
-                                <Nav.Link as={NavLink} to="/" className="p-0">
+                                <Nav.Link as={NavLink} to="/" className="p-0" style={{ color: 'black' }}>
                                 {language.lang}
                                 </Nav.Link>
                             </Nav.Item>
