@@ -86,7 +86,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
   return (
     <Container className="my-5" style={{ height: "200vh" }}>
       {
-        isAlert ? <Alert variant="success">Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >View recipes.</Alert.Link></Alert> : <></>
+        isAlert ? <Alert variant="success">Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >View recipe.</Alert.Link></Alert> : <></>
       }
       <Row>
         <Col xs={12} md={4} className="mx-auto my-3">
@@ -150,7 +150,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
                     className="ingredient-input"
                     type="text"
                     name="ingredients"
-                    defaultValue={input}
+                    value={input}
                     onClick={handleDeleteIngredient}
                   />
                   <Form.Control.Feedback type="invalid">

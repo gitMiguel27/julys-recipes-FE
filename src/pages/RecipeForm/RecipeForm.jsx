@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Form, Row, Col, Button, Container, Alert, InputGroup } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import './RecipeForm.css'
 
 function RecipeForm({ recipes, setRecipes }) {
   const [validated, setValidated] = useState(false)
@@ -23,6 +24,18 @@ function RecipeForm({ recipes, setRecipes }) {
     })
 
     setIngredient('')
+  }
+
+  function handleDeleteIngredient(event) {
+    const ingredientToDelete = event.target.value
+
+    setIngredientInputs(ingredientInputs => ingredientInputs.filter(input => input !== ingredientToDelete))
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      ingredients: prevFormData.ingredients.filter(
+        (ingredient) => ingredient !== ingredientToDelete
+      ),
+    }))
   }
 
   function handleChange(event) {
@@ -104,7 +117,6 @@ function RecipeForm({ recipes, setRecipes }) {
             <Form.Label>Ingredients</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
-                required
                 type="text"
                 name='ingredients'
                 onChange={handleChange}
@@ -122,9 +134,11 @@ function RecipeForm({ recipes, setRecipes }) {
               return (
                 <Form.Group key={index} as={Col} xs={12} md={3} controlId={`input-${index}`}>
                   <Form.Control
+                    className="ingredient-input"
                     type="text"
                     name='ingredients'
-                    defaultValue={input}
+                    value={input}
+                    onClick={handleDeleteIngredient}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please do not leave blank.
