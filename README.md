@@ -1,5 +1,6 @@
 # July's Recipes Front-End
 
+## About This Project
 These recipes are inspired by my mom&apos;s cooking. She doesn&apos;t have any culinary training, but her food always comes out tasty because she cooks from the heart. I am sharing her recipes on here so her talent and love for food is recognized, and for people to learn about Peruvian cuisine, one of the best cuisines out there. Hope you enjoy!
 
 ## Installation
