@@ -6,7 +6,7 @@ These recipes are inspired by my mom&apos;s cooking. She doesn&apos;t have any c
 ## Installation
 
 This project uses React + Bootstrap and react-router-dom. To install these dependencies, run the following command:
-**npm i react-bootstrap react-router-dom react-i18next i18next**
+**npm i react-bootstrap react-router-dom react-i18next i18next i18next-browser-languagedetector**
 
 ## Development
 
