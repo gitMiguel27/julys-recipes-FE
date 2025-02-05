@@ -2,8 +2,11 @@ import { useState } from 'react'
 import { Form, Row, Col, Button, Container, Alert, InputGroup } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './RecipeForm.css'
+import { useTranslation } from 'react-i18next';
 
 function RecipeForm({ recipes, setRecipes }) {
+  const { t } = useTranslation()
+
   const [validated, setValidated] = useState(false)
   const [isAlert, setIsAlert] = useState(false)
   const [ingredientInputs, setIngredientInputs] = useState([])
@@ -86,44 +89,43 @@ function RecipeForm({ recipes, setRecipes }) {
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-5">
           <Form.Group as={Col} xs={12} controlId="titleValidation">
-            <Form.Label>Title</Form.Label>
+            <Form.Label>{t('labelTitle')}</Form.Label>
             <Form.Control
               required
               type="text"
-              placeholder="Title of Recipe"
+              placeholder={t('placeHolderTitle')}
               name='title'
               onChange={handleChange}
             />
-            <Form.Control.Feedback>Sounds yummy!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Please provide a valid title.
+              {t('feedbackTitle')}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} xs={12} controlId="imageValidation">
-            <Form.Label>Image</Form.Label>
+            <Form.Label>{t('labelImage')}</Form.Label>
             <Form.Control
               required
               type="text"
-              placeholder="Image Url"
+              placeholder={t('placeHolderImage')}
               name='image'
               onChange={handleChange}
             />
-            <Form.Control.Feedback>Looks yummy!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Please provide a valid url.
+              {t('feedbackImage')}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} xs={12} md={3} controlId="ingredientsValidation">
-            <Form.Label>Ingredients</Form.Label>
+            <Form.Label>{t('labelIngredients')}</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
+                required
                 type="text"
                 name='ingredients'
                 onChange={handleChange}
               />
-              <Button variant='danger' onClick={addIngredient}>Add Ingredient</Button>
+              <Button variant='danger' onClick={addIngredient}>{t('addIngredientButton')}</Button>
               <Form.Control.Feedback type="invalid">
-                Please provide an ingredient.
+                {t('feedbackInstructions')}
               </Form.Control.Feedback>
             </InputGroup>
           </Form.Group>
@@ -140,30 +142,26 @@ function RecipeForm({ recipes, setRecipes }) {
                     value={input}
                     onClick={handleDeleteIngredient}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Please do not leave blank.
-                  </Form.Control.Feedback>
                 </Form.Group>
               )
             })
           }
           </Row>
           <Form.Group as={Col} xs={12} controlId="instructionsValidation">
-            <Form.Label>Instructions</Form.Label>
+            <Form.Label>{t('labelInstructions')}</Form.Label>
             <Form.Control
               required
               as="textarea"
-              placeholder="Cooking Instructions Here..."
+              placeholder={t('placeHolderInstructions')}
               name='instructions'
               onChange={handleChange}
             />
-            <Form.Control.Feedback>Can&apos;t wait to try it.</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Please provide some cooking instructions.
+              {t('feedbackInstructions')}
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
-        <Button variant='danger' type="submit">Create Recipe</Button>
+        <Button variant='danger' type="submit">{t('createRecipeButton')}</Button>
       </Form>
     </Container>
   )

@@ -116,6 +116,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
             <Form.Control
               required
               type="text"
+              placeholder={t('placeHolderTitle')}
               defaultValue={currentRecipe.title}
               name="title"
               onChange={handleChange}
@@ -129,6 +130,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
             <Form.Control
               required
               type="text"
+              placeholder={t('placeHolderImage')}
               defaultValue={currentRecipe.image}
               name="image"
               onChange={handleChange}
@@ -180,6 +182,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
             <Form.Control
               required
               as="textarea"
+              placeholder={t('placeHolderInstructions')}
               defaultValue={currentRecipe.instructions}
               name="instructions"
               onChange={handleChange}

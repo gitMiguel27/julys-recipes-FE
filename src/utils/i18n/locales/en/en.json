@@ -6,6 +6,8 @@
   "aboutHeader": "About July's Recipes",
   "aboutText": "These recipes are inspired by my mom's cooking. She doesn't have any culinary training, but her food always comes out tasty because she cooks with love. I am sharing her recipes on here so her talent and love for food continues on. And for people to learn about Peruvian cuisine, one of the best cuisines in the world. Hope you enjoy!",
 
+  "recipesPageHeader": "Recipes",
+
   "brandNavbar": "{{brand}}",
   "homeNavbar": "Home",
   "aboutNavbar": "About",
@@ -25,9 +27,20 @@
   "ingredientsHeader": "Ingredients:",
   "cookingInstructionsHeader": "Cooking Instructions:",
 
+  "createRecipeButton": "Create Recipe",
   "cancelRecipeButton": "Cancel",
   "addIngredientButton": "Add Ingredient",
   "saveButton": "Save",
+
+  "labelTitle": "Title",
+  "labelImage": "Image",
+  "labelIngredients": "Ingredients",
+  "labelInstructions": "Instructions",
+
+  "placeHolderTitle": "Title of Recipe",
+  "placeHolderImage": "Image URL",
+  "placeHolderInstructions": "Cooking instructions here...",
+
   "feedbackTitle": "Please provide a valid title.",
   "feedbackImage": "Please provide a valid URL.",
   "feedbackIngredient": "Please do not leave blank.",
