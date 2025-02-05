@@ -4,13 +4,10 @@ import './RecipeCard.css'
 
 function RecipeCard({ recipe, setCurrentRecipe }) {
   return (
-    <Col xs={8} md={6} lg={3} className='mx-auto' >
+    <Col xs={8} md={6} lg={3} className='mx-auto mx-md-0' >
       <Nav.Link as={NavLink} to={`/${recipe._id}`}>
-        <Card className='text-center border border-dark rounded my-3' onClick={() => setCurrentRecipe(recipe)} >
-            <Container className='recipe-card px-0'>
-              <Card.Img className='recipe-card-image' variant="top" src={recipe.image} alt={recipe.title} />
-              <Card.ImgOverlay className='overlay'></Card.ImgOverlay>
-            </Container>
+        <Card className='text-center border border-dark rounded my-3' style={{ maxHeight: '35vh' }} onClick={() => setCurrentRecipe(recipe)} >
+            <Card.Img className='recipe-card-image' variant="top" src={recipe.image} alt={recipe.title} />
             <Card.Body className='recipe-card-title align-content-end' >
                 <Card.Text>{recipe.title}</Card.Text>
             </Card.Body>
