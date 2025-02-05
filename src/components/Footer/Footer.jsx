@@ -14,7 +14,7 @@ function Footer() {
       <Row >
         <Col xs={12} md={4} className="mb-2" >
           <Container className="px-0" style={{ maxWidth: "15vw" }}>
-            <h5>{t('footerContactHeading')}</h5>
+            <h5>{t('footerLinksHeading')}</h5>
             <Nav
               variant="underline"
               activeKey="/home"
@@ -62,7 +62,7 @@ function Footer() {
         </Col>
         <Col xs={12} md={4} className="mb-2" >
           <Container className="px-0" style={{ maxWidth: "15vw" }}>
-            <h5>{t('footerLinksHeading')}</h5>
+            <h5>{t('footerContactHeading')}</h5>
             <Nav as="ul" className="flex-column">
               <Nav.Item as="li">
                 <Nav.Link
