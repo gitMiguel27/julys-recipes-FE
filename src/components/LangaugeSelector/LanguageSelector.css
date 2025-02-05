@@ -1,0 +1,7 @@
+.language {
+    color: black;
+}
+
+.language:hover {
+    color: #dc3545;
+}

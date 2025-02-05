@@ -3,27 +3,29 @@ import { NavLink } from "react-router-dom";
 import github from "../../icons/github.svg";
 import portfolio from "../../icons/portfolio.svg";
 import linkedin from "../../icons/linkedin.svg";
-import LanguageSelector from "../LanguageSelector";
 import { useTranslation } from "react-i18next";
+import LanguageSelector from "../LangaugeSelector/LanguageSelector";
+import './Footer.css'
 
 function Footer() {
   const { t } = useTranslation()
 
   return (
     <Container className="px-0">
+      <hr/>
       <Row >
-        <Col xs={12} md={4} className="mb-2" >
-          <Container className="px-0" style={{ maxWidth: "15vw" }}>
+        <Col xs={12} md={4} className="mb-2 text-center text-md-start" >
+          <Container className="px-0">
             <h5>{t('footerLinksHeading')}</h5>
             <Nav
               variant="underline"
-              activeKey="/home"
+              activeKey="/"
               as="ul"
-              className="flex-column"
+              className="flex-column align-items-center align-items-md-start"
               gap={0}
             >
               <Nav.Item as="li" style={{ width: 'max-content' }} >
-                <Nav.Link as={NavLink} to="/" className="p-0">
+                <Nav.Link as={NavLink} to="/" className="link p-0" >
                   {t('homeNavbar')}
                 </Nav.Link>
               </Nav.Item>
@@ -32,7 +34,7 @@ function Footer() {
                   eventKey="link-1"
                   as={NavLink}
                   to="/about"
-                  className="p-0"
+                  className="link p-0"
                 >
                   {t('aboutNavbar')}
                 </Nav.Link>
@@ -42,7 +44,7 @@ function Footer() {
                   eventKey="link-2"
                   as={NavLink}
                   to="/recipes"
-                  className="p-0"
+                  className="link p-0"
                 >
                   {t('recipesNavbar')}
                 </Nav.Link>
@@ -52,7 +54,7 @@ function Footer() {
                   eventKey="link-3"
                   as={NavLink}
                   to="/form"
-                  className="p-0"
+                  className="link p-0"
                 >
                   {t('formNavbar')}
                 </Nav.Link>
@@ -60,10 +62,10 @@ function Footer() {
             </Nav>
           </Container>
         </Col>
-        <Col xs={12} md={4} className="mb-2" >
-          <Container className="px-0" style={{ maxWidth: "15vw" }}>
+        <Col xs={12} md={4} className="mb-2 text-center text-md-start" >
+          <Container className="px-0">
             <h5>{t('footerContactHeading')}</h5>
-            <Nav as="ul" className="flex-column">
+            <Nav as="ul" className="flex-column align-items-center align-items-md-start">
               <Nav.Item as="li">
                 <Nav.Link
                   href="https://www.linkedin.com/in/miguel-nazario/"
