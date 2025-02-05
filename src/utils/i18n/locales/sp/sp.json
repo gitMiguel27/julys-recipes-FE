@@ -22,5 +22,11 @@
   "ingredientsHeader": "Ingredientes:",
   "cookingInstructionsHeader": "Instrucciones de preparación:",
 
-  "cancelRecipeButton": "Cancelar"
+  "cancelRecipeButton": "Cancelar",
+  "addIngredientButton": "Agregar Ingrediente",
+  "saveButton": "Guardar",
+  "feedbackTitle": "Proporcione un título válido.",
+  "feedbackImage": "Proporcione una URL válida.",
+  "feedbackIngredient": "Por favor no lo deje en blanco.",
+  "feedbackInstructions": "Proporcione algunas instrucciones de preparación."
 }

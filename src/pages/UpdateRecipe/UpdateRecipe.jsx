@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) {
   const { t } = useTranslation()
   const navigate = useNavigate()
+
   const [validated, setValidated] = useState(false)
   const [isAlert, setIsAlert] = useState(false)
   const [ingredientInputs, setIngredientInputs] = useState(currentRecipe.ingredients)
@@ -17,6 +18,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
     ingredients: currentRecipe.ingredients,
     instructions: currentRecipe.instructions,
   })
+  const [cancel, setCancel] = useState(true)
 
   function addIngredient() {
     setIngredientInputs([ ingredient, ...ingredientInputs])
@@ -81,6 +83,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
       })
       setRecipes(updatedRecipeList)
       setCurrentRecipe(updatedRecipe)
+      setCancel(!cancel)
     } catch (error) {
       console.error({ error: error.message })
     }
@@ -91,11 +94,16 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
       {
         isAlert ? <Alert variant="success">Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >View recipe.</Alert.Link></Alert> : <></>
       }
-      <Row>
-        <Col className='d-flex justify-content-start my-auto' xs={12}>
-          <Button variant='danger' className='me-3' onClick={() => navigate(`/${currentRecipe._id}`)}>{t('cancelRecipeButton')}</Button>
-        </Col>
-      </Row>
+      {
+        cancel ? 
+        <Row>
+          <Col className='d-flex justify-content-start my-auto' xs={12}>
+            <Button variant='danger' className='me-3' onClick={() => navigate(`/${currentRecipe._id}`)}>{t('cancelRecipeButton')}</Button>
+          </Col>
+        </Row>
+        :
+        <></>
+      }
       <Row>
         <Col xs={12} md={4} className="mx-auto my-3">
           <Image src={currentRecipe.image} alt={currentRecipe.title} fluid rounded />
@@ -112,9 +120,8 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
               name="title"
               onChange={handleChange}
             />
-            <Form.Control.Feedback>Sounds yummy!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Please provide a valid title.
+              {t('feedbackTitle')}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} xs={12} controlId="imageValidation">
@@ -126,9 +133,8 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
               name="image"
               onChange={handleChange}
             />
-            <Form.Control.Feedback>Looks yummy!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Please provide a valid url.
+              {t('feedbackImage')}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} xs={12} md={3} controlId="ingredientsValidation">
@@ -139,7 +145,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
                 name="ingredients"
                 onChange={handleChange}
               />
-              <Button variant="danger" onClick={addIngredient} >Add Ingredient</Button>
+              <Button variant="danger" onClick={addIngredient} >{t('addIngredientButton')}</Button>
             </InputGroup>
           </Form.Group>
           <Row className="mt-3">
@@ -162,7 +168,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
                     onClick={handleDeleteIngredient}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Please do not leave blank.
+                    {t('feedbackIngredient')}
                   </Form.Control.Feedback>
                 </Form.Group>
               )
@@ -178,16 +184,13 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
               name="instructions"
               onChange={handleChange}
             />
-            <Form.Control.Feedback>
-              Can&apos;t wait to try it.
-            </Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Please provide some cooking instructions.
+              {t('feedbackInstructions')}
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
         <Button variant="danger" type="submit">
-          Save
+          {t('saveButton')}
         </Button>
       </Form>
     </Container>
