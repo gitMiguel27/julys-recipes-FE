@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Form, Row, Col, Button, Container, Alert, InputGroup, Image } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import './UpdateRecipe.css'
+import { useTranslation } from "react-i18next";
 
 function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) {
+  const { t } = useTranslation()
+  const navigate = useNavigate()
   const [validated, setValidated] = useState(false)
   const [isAlert, setIsAlert] = useState(false)
   const [ingredientInputs, setIngredientInputs] = useState(currentRecipe.ingredients)
@@ -88,6 +91,11 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
       {
         isAlert ? <Alert variant="success">Successfully updated recipe. <Alert.Link as={NavLink} to={`/${currentRecipe._id}`} onClick={() => setIsAlert(false)} >View recipe.</Alert.Link></Alert> : <></>
       }
+      <Row>
+        <Col className='d-flex justify-content-start my-auto' xs={12}>
+          <Button variant='danger' className='me-3' onClick={() => navigate(`/${currentRecipe._id}`)}>{t('cancelRecipeButton')}</Button>
+        </Col>
+      </Row>
       <Row>
         <Col xs={12} md={4} className="mx-auto my-3">
           <Image src={currentRecipe.image} alt={currentRecipe.title} fluid rounded />

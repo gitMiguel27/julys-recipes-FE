@@ -1,8 +1,10 @@
 import { Container, Row, Col, Image, ListGroup, Button } from 'react-bootstrap'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 function RecipePage({ currentRecipe, recipes, setRecipes }) {
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     function handleDeleteRecipe() {
         deleteRecipe()
@@ -26,9 +28,9 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
         <Container className='text-center my-5' style={{ height: '200vh' }}>
             <Row>
                 <Col className='d-flex justify-content-end my-auto' xs={12} >
-                    <Button variant='danger' className='me-auto' onClick={() => navigate('/recipes')} >Back to Recipes</Button>
-                    <Button variant='danger' className='me-3' onClick={() => navigate(`/update/${currentRecipe._id}`)}>Update</Button>
-                    <Button variant='danger' onClick={handleDeleteRecipe}>Delete</Button>
+                    <Button variant='danger' className='me-auto' onClick={() => navigate('/recipes')} >{t('backToRecipesButton')}</Button>
+                    <Button variant='danger' className='me-3' onClick={() => navigate(`/update/${currentRecipe._id}`)}>{t('updateRecipeButton')}</Button>
+                    <Button variant='danger' onClick={handleDeleteRecipe}>{t('deleteRecipeButton')}</Button>
                 </Col>
             </Row>
             <Row>
@@ -43,7 +45,7 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
             </Row>
             <Row>
                 <Col xs={12} md={4} className='mx-auto my-3' >
-                    <h5>Ingredients:</h5>
+                    <h5>{t('ingredientsHeader')}</h5>
                     <ListGroup as='ol' numbered >
                         {
                             currentRecipe.ingredients.map(ingredient => {
@@ -57,7 +59,7 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
             </Row>
             <Row>
                 <Col xs={12} md={10} className='mx-auto my-3' >
-                    <h5>Cooking Instructions:</h5>
+                    <h5>{t('cookingInstructionsHeader')}</h5>
                     <p>{currentRecipe.instructions}</p>
                 </Col>
             </Row>

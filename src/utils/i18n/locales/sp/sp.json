@@ -12,6 +12,15 @@
   "footerContactHeading": "Contacto",
   "footerLinksHeading": "Menú de navegación",
   "footerLanguageHeading": "Idioma",
-  "footerCopyright": "Derechos de autor © 2025 hecho por gitMiguel27"
+  "footerEnglishLanguage": "Inglés (English)",
+  "footerSpanishLanguage": "Español (Spanish)",
+  "footerCopyright": "Derechos de autor © 2025 · gitMiguel27",
 
+  "backToRecipesButton": "Volver a Recetas",
+  "updateRecipeButton": "Actualizar",
+  "deleteRecipeButton": "Eliminar",
+  "ingredientsHeader": "Ingredientes:",
+  "cookingInstructionsHeader": "Instrucciones de preparación:",
+
+  "cancelRecipeButton": "Cancelar"
 }

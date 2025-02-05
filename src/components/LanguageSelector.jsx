@@ -28,7 +28,7 @@ function LanguageSelector() {
                         return (
                             <Nav.Item key={language.code} as="li" className="mt-1" style={{ width: "max-content" }} onClick={() => changeLanguage(language.code)}>
                                 <Nav.Link as={NavLink} to="/" className="p-0" style={{ color: 'black' }}>
-                                {language.lang}
+                                {language.lang === "English" ? t('footerEnglishLanguage') : t('footerSpanishLanguage')}
                                 </Nav.Link>
                             </Nav.Item>
                         )
