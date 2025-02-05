@@ -1,6 +1,7 @@
 import { Container, Row, Col, Image, ListGroup, Button } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import './RecipePage.css'
 
 function RecipePage({ currentRecipe, recipes, setRecipes }) {
     const navigate = useNavigate()
@@ -40,7 +41,7 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
             </Row>
             <Row>
                 <Col xs={12} md={4} className='mx-auto my-3' >
-                    <Image src={currentRecipe.image} alt={currentRecipe.title} fluid rounded />
+                    <Image className='recipe-page-image' src={currentRecipe.image} alt={currentRecipe.title} fluid rounded />
                 </Col>
             </Row>
             <Row>

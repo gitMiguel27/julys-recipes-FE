@@ -1,6 +1,5 @@
 .recipe-card-image {
-    height: 25vh;
-    max-height: 30vh;
+    height: 30vh;
     object-fit: cover;
 }
 
