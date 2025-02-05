@@ -1,6 +1,7 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
+import './Header.css'
 
 function Header() {
   const { t } = useTranslation()
