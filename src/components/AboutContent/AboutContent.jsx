@@ -1,7 +1,10 @@
 import { Col, Container, Image, Row } from 'react-bootstrap'
 import ceviche from '../../assets/ceviche.jpg'
+import { useTranslation } from 'react-i18next'
 
 function AboutContent() {
+  const { t } = useTranslation()
+
   return (
     <Container className='d-flex flex-column align-items-center text-center gap-3 mt-5' style={{ width: '75vw' }}>
       <Container>
@@ -11,8 +14,8 @@ function AboutContent() {
           </Col>
         </Row>
       </Container>
-      <h3>About July&apos;s Recipes</h3>
-      <p>These recipes are inspired by my mom&apos;s cooking. She doesn&apos;t have any culinary training, but her food always comes out tasty because she cooks from the heart. I am sharing her recipes on here so her talent and love for food continues on. And for people to learn about Peruvian cuisine, one of the best cuisines out there. Hope you enjoy!</p>
+      <h3>{t('aboutHeader')}</h3>
+      <p>{t('aboutText')}</p>
     </Container>
   )
 }
