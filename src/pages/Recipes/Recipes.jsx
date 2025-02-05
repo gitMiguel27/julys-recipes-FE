@@ -6,7 +6,7 @@ function Recipes({ recipes, setCurrentRecipe }) {
   const { t } = useTranslation()
 
   return (
-    <Container style={{ minHeight: '200vh', height: 'auto' }} >
+    <Container style={{ minHeight: '200vh' }} >
         <Container className='mt-5 px-0' >
           <Row className='text-center'>
             <Col xs={12} >

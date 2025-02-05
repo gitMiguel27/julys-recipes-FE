@@ -25,7 +25,7 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
     }
 
     return (
-        <Container className='text-center my-5' style={{ height: '200vh' }}>
+        <Container className='text-center my-5' style={{ minHeight: '200vh' }}>
             <Row>
                 <Col className='d-flex justify-content-end my-auto' xs={12} >
                     <Button variant='danger' className='me-auto' onClick={() => navigate('/recipes')} >{t('backToRecipesButton')}</Button>
