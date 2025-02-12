@@ -17,7 +17,7 @@ function App() {
 
   async function getRecipes() {
     try {
-      let response = await fetch(`http://localhost:3000/api/recipes`)
+      let response = await fetch(`https://julys-recipes-be.onrender.com/api/recipes`)
       let recipeData = await response.json()
 
       setRecipes(recipeData)

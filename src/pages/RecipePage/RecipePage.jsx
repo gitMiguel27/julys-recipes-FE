@@ -17,7 +17,7 @@ function RecipePage({ currentRecipe, recipes, setRecipes }) {
 
     async function deleteRecipe() {
         try {
-            await fetch(`http://localhost:3000/api/recipes/${currentRecipe._id}`, {
+            await fetch(`https://julys-recipes-be.onrender.com/api/recipes/${currentRecipe._id}`, {
                 method: "DELETE",
             })
         } catch (error) {

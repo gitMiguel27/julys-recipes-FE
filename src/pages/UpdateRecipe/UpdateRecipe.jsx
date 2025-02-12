@@ -70,7 +70,7 @@ function UpdateRecipe({ currentRecipe, setCurrentRecipe, recipes, setRecipes }) 
 
   async function updateRecipe(createdRecipe) {
     try {
-      let response = await fetch(`http://localhost:3000/api/recipes/${currentRecipe._id}`, {
+      let response = await fetch(`https://julys-recipes-be.onrender.com/api/recipes/${currentRecipe._id}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(createdRecipe),
